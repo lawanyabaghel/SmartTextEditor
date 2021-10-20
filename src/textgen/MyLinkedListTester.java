@@ -28,7 +28,6 @@ public class MyLinkedListTester {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		// Feel free to use these lists, or add your own
 	    shortList = new MyLinkedList<String>();
 		shortList.add("A");
 		shortList.add("B");
@@ -46,10 +45,6 @@ public class MyLinkedListTester {
 	}
 
 	
-	/** Test if the get method is working correctly.
-	 */
-	/*You should not need to add much to this method.
-	 * We provide it as an example of a thorough test. */
 	@Test
 	public void testGet()
 	{
@@ -103,9 +98,6 @@ public class MyLinkedListTester {
 	}
 	
 	
-	/** Test removing an element from the list.
-	 * We've included the example from the concept challenge.
-	 * You will want to add more tests.  */
 	@Test
 	public void testRemove()
 	{
