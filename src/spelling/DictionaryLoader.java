@@ -7,9 +7,6 @@ import java.io.IOException;
 public class DictionaryLoader {
 
     /** Load the words from the dictionary file into the dictionary
-     * 
-     * @param d  The dictionary to load
-     * @param filename The file containing the words to load.  Each word must be on a separate line.
      */    
 	public static void loadDictionary(Dictionary d, String filename)
     {
@@ -30,8 +27,7 @@ public class DictionaryLoader {
     
     /** Load the first N words from the dictionary file into the dictionary
      * 
-     * @param d  The dictionary to load
-     * @param filename The file containing the words to load.  Each word must be on a separate line.
+     * @param filename The file containing the words to load. 
      * @param nWords  The number of words to load.  It will load the first nWords words
      */
     public static void loadDictionary(Dictionary d, String filename, int nWords)
