@@ -16,7 +16,6 @@ import java.util.List;
 public class NearbyWords implements SpellingSuggest {
 	// THRESHOLD to determine how many words to look through when looking
 	// for spelling suggestions (stops prohibitively long searching)
-	// For use in the Optional Optimization in Part 2.
 	private static final int THRESHOLD = 100; 
 
 	Dictionary dict;
@@ -124,7 +123,6 @@ public class NearbyWords implements SpellingSuggest {
 		// initial variables
 		List<String> queue = new LinkedList<String>();     // String to explore
 		HashSet<String> visited = new HashSet<String>();   // to avoid exploring the same  
-														   // string multiple times
 		List<String> retList = new LinkedList<String>();   // words to return
 		 
 		
