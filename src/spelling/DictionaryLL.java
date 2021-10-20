@@ -16,13 +16,10 @@ public class DictionaryLL implements Dictionary
 	}
 
 
-    /** Add this word to the dictionary.  Convert it to lowercase first
-     * for the assignment requirements.
-     * @param word The word to add
-     * @return true if the word was added to the dictionary 
+    /** Add this word to the dictionary.   
      */
     public boolean addWord(String word) {
-    	// TODO: Implement this method
+ 
     	if (!dict.contains(word.toLowerCase())) {
     		dict.add(word.toLowerCase());
             return true;
