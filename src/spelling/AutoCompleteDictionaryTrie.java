@@ -82,18 +82,9 @@ public class AutoCompleteDictionaryTrie implements  Dictionary, AutoComplete {
 	/** 
      * Return a list, in order of increasing (non-decreasing) word length,
      * containing the numCompletions shortest legal completions 
-     * of the prefix string. All legal completions must be valid words in the 
-     * dictionary. If the prefix itself is a valid word, it is included 
-     * in the list of returned words. 
+     * of the prefix string. 
      * 
      * The list of completions must contain 
-     * all of the shortest completions, but when there are ties, it may break 
-     * them in any order. For example, if there the prefix string is "ste" and 
-     * only the words "step", "stem", "stew", "steer" and "steep" are in the 
-     * dictionary, when the user asks for 4 completions, the list must include 
-     * "step", "stem" and "stew", but may include either the word 
-     * "steer" or "steep".
-     * 
      * If this string prefix is not in the trie, it returns an empty list.
      * 
      * @param prefix The text to use at the word stem
@@ -102,8 +93,6 @@ public class AutoCompleteDictionaryTrie implements  Dictionary, AutoComplete {
      */@Override
      public List<String> predictCompletions(String prefix, int numCompletions) 
      {
-    	 // TODO: Implement this method
-    	 // This method should implement the following algorithm:
     	 // 1. Find the stem in the trie.  If the stem does not appear in the trie, return an
     	 //    empty list
     	 // 2. Once the stem is found, perform a breadth first search to generate completions
