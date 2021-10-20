@@ -14,7 +14,6 @@ public abstract class Document {
 	private String text;
 	
 	/** Create a new document from the given text.
-	 * Because this class is abstract, this is used only from subclasses.
 	 * @param text The text of the document.
 	 */
 	protected Document(String text)
@@ -24,10 +23,6 @@ public abstract class Document {
 	
 	/** Returns the tokens that match the regex pattern from the document 
 	 * text string.
-	 * @param pattern A regular expression string specifying the 
-	 *   token pattern desired
-	 * @return A List of tokens from the document text that match the regex 
-	 *   pattern
 	 */
 	protected List<String> getTokens(String pattern)
 	{
@@ -46,8 +41,6 @@ public abstract class Document {
 	 * in a word.  You should write this and use it in your 
 	 * BasicDocument class.
 	 * 
-	 * @param word  The word to count the syllables in
-	 * @return The number of syllables in the given word, according to 
 	 * this rule: Each contiguous sequence of one or more vowels is a syllable, 
 	 *       with the following exception: a lone "e" at the end of a word 
 	 *       is not considered a syllable unless the word has no other syllables. 
@@ -55,9 +48,6 @@ public abstract class Document {
 	 */
 	protected int countSyllables(String word)
 	{
-		// Implement this method so that you can call it from the 
-	    // getNumSyllables method in BasicDocument (module 2) and 
-	    // EfficientDocument (module 3).
 		int numSyllables = 0;
 		boolean newSyllable = true;
 		String vowels = "aeiouy";
@@ -82,12 +72,6 @@ public abstract class Document {
 	}
 	
 	/** A method for testing
-	 * 
-	 * @param doc The Document object to test
-	 * @param syllables The expected number of syllables
-	 * @param words The expected number of words
-	 * @param sentences The expected number of sentences
-	 * @return true if the test case passed.  False otherwise.
 	 */
 	public static boolean testCase(Document doc, int syllables, int words, int sentences)
 	{
