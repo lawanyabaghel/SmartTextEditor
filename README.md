@@ -19,14 +19,21 @@ textgen.MyLinkedList*.java
 4 : Trees (including Binary Search Trees and Tries)
 =========================================================
 spelling.SpellingSuggest.java
+
 spelling.AutoComplete.java
+
 spelling.Dictionary.java
+
 spelling.Dictionary*.java
+
 spelling.AutoCompleteDictionaryTrie.java
+
 spelling.TrieNode.java
 
 5 : Hash Maps and Edit Distance
 ====================================
 spelling.WordPath.java
+
 spelling.NearbyWords.java
+
 spelling.WPTree.java
