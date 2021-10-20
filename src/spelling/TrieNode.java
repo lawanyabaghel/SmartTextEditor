@@ -28,7 +28,7 @@ class TrieNode {
 		this.text = text;
 	}
 	
-	/** Return the TrieNode that is the child when you follow the 
+	/** Return the TrieNode that is the child when we follow the 
 	 * link from the given Character 
 	 * @param c The next character in the key
 	 * @return The TrieNode that character links to, or null if that link
