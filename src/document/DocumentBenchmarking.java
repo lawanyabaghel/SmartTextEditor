@@ -30,16 +30,13 @@ public class DocumentBenchmarking {
 		// THe number of characters to start with. 
 		int start = 50000;
 		
-		// Fill in the rest of this method so that it runs two loops
-		// and prints out timing results
 		System.out.print("NumberOfChars"+ '\t');	
 		System.out.print("BasicTime" + '\t');
 		System.out.print("EfficientTime" + '\n');
 		for (int numToCheck = start; numToCheck < numSteps*increment + start; 
 				numToCheck += increment)
 		{
-			// numToCheck holds the number of characters that is read from the 
-			// file to create both a BasicDocument and an EfficientDocument.  
+			 
 			
 			/* Each time through this loop you should:
 			 * 1. Print out numToCheck followed by a tab (\t) (NOT a newline)
@@ -48,7 +45,7 @@ public class DocumentBenchmarking {
 			 *     a. Creates a BasicDocument 
 			 *     b. Calls fleshScore on this document
 			 * 4. Print out the time it took to complete the loop in step 3 
-			 *      (on the same line as the first print statement) followed by a tab (\t)
+			 *       followed by a tab (\t)
 			 * 5. Time a loop that runs trials times (trials is the variable above) that:
 			 *     a. Creates an EfficientDocument 
 			 *     b. Calls fleshScore on this document
@@ -78,9 +75,6 @@ public class DocumentBenchmarking {
 	
 	/** Get a specified number of characters from a text file
 	 * 
-	 * @param filename The file to read from
-	 * @param numChars The number of characters to read
-	 * @return The text string from the file with the appropriate number of characters
 	 */
 	public static String getStringFromFile(String filename, int numChars) {
 		
