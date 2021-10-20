@@ -22,19 +22,9 @@ public class EfficientDocument extends Document {
 	}
 	
 	
-	/** 
-	 * Take a string that either contains only alphabetic characters,
-	 * or only sentence-ending punctuation.  Return true if the string
-	 * contains only alphabetic characters, and false if it contains
-	 * end of sentence punctuation.  
-	 * 
-	 * @param tok The string to check
-	 * @return true if tok is a word, false if it is punctuation. 
-	 */
 	private boolean isWord(String tok)
 	{
-	    // Note: This is a fast way of checking whether a string is a word
-	    // You probably don't want to change it.
+	    // This is a fast way of checking whether a string is a word
 		return !(tok.indexOf("!") >=0 || tok.indexOf(".") >=0 || tok.indexOf("?")>=0);
 	}
 	
@@ -46,7 +36,7 @@ public class EfficientDocument extends Document {
 	private void processText()
 	{
 		// Call getTokens on the text to preserve separate strings that are 
-		// either words or sentence-ending punctuation.  Ignore everything
+		// either words or sentence-ending punctuation. Ignore everything
 		// That is not a word or a sentence-ending puctuation.
 		List<String> tokens = getTokens("[!?.]+|[a-zA-Z]+");
 		
@@ -63,10 +53,6 @@ public class EfficientDocument extends Document {
 
 	
 	/**
-	 * Get the number of sentences in the document.
-	 * 
-	 * Check the examples in the main method below for more information. 
-	 *  
 	 * This method does NOT process the whole text each time it is called.  
 	 * It returns information already stored in the EfficientDocument object.
 	 * 
@@ -79,13 +65,6 @@ public class EfficientDocument extends Document {
 
 	
 	/**
-	 * Get the number of words in the document.
-	 * This method completely ignores numbers when you count words, and assumes that the document does not have 
-	 * any strings that combine numbers and letters. 
-	 * 
-	 * This method does NOT process the whole text each time it is called.  
-	 * It returns information already stored in the EfficientDocument object.
-	 * 
 	 * @return The number of words in the document.
 	 */
 	@Override
@@ -94,17 +73,7 @@ public class EfficientDocument extends Document {
 	}
 
 
-	/**
-	 * Get the total number of syllables in the document (the stored text). 
-	 * To calculate the the number of syllables in a word, it uses the following rules:
-	 *       Each contiguous sequence of one or more vowels is a syllable, 
-	 *       with the following exception: a lone "e" at the end of a word 
-	 *       is not considered a syllable unless the word has no other syllables. 
-	 *       You should consider y a vowel.
-	 *       
-	 * This method does NOT process the whole text each time it is called.  
-	 * It returns information already stored in the EfficientDocument object.
-	 * 
+	/**      
 	 * @return The number of syllables in the document.
 	 */
 	@Override
