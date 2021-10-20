@@ -8,16 +8,16 @@ document.Document.java
 
 document.BasicDocument.java
 
-2.Efficiency Analysis and Benchmarking
-=============================================
+2 : Efficiency Analysis and Benchmarking
+
 document.EfficientDocument.java
 
 3 : Interfaces, Linked Lists vs. Arrays
-=============================================================
+
 textgen.MyLinkedList*.java
 
 4 : Trees (including Binary Search Trees and Tries)
-=========================================================
+
 spelling.SpellingSuggest.java
 
 spelling.AutoComplete.java
@@ -31,7 +31,7 @@ spelling.AutoCompleteDictionaryTrie.java
 spelling.TrieNode.java
 
 5 : Hash Maps and Edit Distance
-====================================
+
 spelling.WordPath.java
 
 spelling.NearbyWords.java
