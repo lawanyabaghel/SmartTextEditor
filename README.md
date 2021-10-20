@@ -3,7 +3,7 @@ Smart text editor/ processor in Java that incorporates “intelligent” behavio
 # Functionality
 
 1 : Introduction and Working with Strings
-==============================================
+
 document.Document.java
 
 document.BasicDocument.java
