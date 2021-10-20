@@ -57,7 +57,6 @@ public class MyLinkedList<E> extends AbstractList<E> {
 			current =current.next;
 		}
 	        return current.data;
-		//return null;
 	}
 
 	/**
