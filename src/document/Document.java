@@ -46,15 +46,6 @@ public abstract class Document {
 	 * in a word.  You should write this and use it in your 
 	 * BasicDocument class.
 	 * 
-	 * You will probably NOT need to add a countWords or a countSentences 
-	 * method here.  The reason we put countSyllables here because we'll 
-	 * use it again next week when we implement the EfficientDocument class.
-	 * 
-	 * For reasons of efficiency you should not create Matcher or Pattern 
-	 * objects inside this method. Just use a loop to loop through the 
-	 * characters in the string and write your own logic for counting 
-	 * syllables.
-	 * 
 	 * @param word  The word to count the syllables in
 	 * @return The number of syllables in the given word, according to 
 	 * this rule: Each contiguous sequence of one or more vowels is a syllable, 
@@ -64,7 +55,7 @@ public abstract class Document {
 	 */
 	protected int countSyllables(String word)
 	{
-		// TODO: Implement this method so that you can call it from the 
+		// Implement this method so that you can call it from the 
 	    // getNumSyllables method in BasicDocument (module 2) and 
 	    // EfficientDocument (module 3).
 		int numSyllables = 0;
@@ -150,8 +141,6 @@ public abstract class Document {
 	/** return the Flesch readability score of this document */
 	public double getFleschScore()
 	{
-	    // TODO: You will play with this method in week 1, and 
-		// then implement it in week 2
 		double totalSyllables = (double)getNumSyllables();
 		double totalWords = (double)getNumWords();
 		double totalSentences = (double)getNumSentences();
