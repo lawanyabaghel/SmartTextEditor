@@ -23,10 +23,9 @@ public class WPTree implements WordPath {
 	private NearbyWords nw; 
 	
 	// This constructor is used by the Text Editor Application
-	// You'll need to create your own NearbyWords object here.
 	public WPTree () {
 		this.root = null;
-		// TODO initialize a NearbyWords object
+		// initialize a NearbyWords object
 		// Dictionary d = new DictionaryHashSet();
 		// DictionaryLoader.loadDictionary(d, "data/dict.txt");
 		// this.nw = new NearbyWords(d);
@@ -38,10 +37,8 @@ public class WPTree implements WordPath {
 		this.nw = nw;
 	}
 	
-	// see method description in WordPath interface
 	public List<String> findPath(String word1, String word2) 
 	{
-	    // TODO: Implement this method.
 	    return new LinkedList<String>();
 	}
 	
@@ -100,7 +97,7 @@ class WPTreeNode {
         return this.children;
     }
    
-    /** Allows you to build a path from the root node to 
+    /** Allows to build a path from the root node to 
      *  the calling object
      * @return The list of strings starting at the root and 
      *         ending at the calling object
