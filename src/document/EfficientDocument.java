@@ -1,43 +1,27 @@
 package document;
 
 import java.util.List;
-
-/** 
- * A class that represents a text document
- * It does one pass through the document to count the number of syllables, words, 
- * and sentences and then stores those values.
- * 
- * @author UC San Diego Intermediate Programming MOOC team
- */
 public class EfficientDocument extends Document {
 
-	private int numWords;  // The number of words in the document
-	private int numSentences;  // The number of sentences in the document
-	private int numSyllables;  // The number of syllables in the document
+	private int numWords;  
+	private int numSentences;  
+	private int numSyllables;  
 	
-	public EfficientDocument(String text)
-	{
+	public EfficientDocument(String text){
 		super(text);
 		processText();
 	}
 	
 	
-	private boolean isWord(String tok)
-	{
-	    // This is a fast way of checking whether a string is a word
+	private boolean isWord(String tok){
 		return !(tok.indexOf("!") >=0 || tok.indexOf(".") >=0 || tok.indexOf("?")>=0);
 	}
 	
 	
-    /** Passes through the text one time to count the number of words, syllables 
-     * and sentences, and set the member variables appropriately.
-     * Words, sentences and syllables are defined as described below. 
-     */
 	private void processText()
 	{
 		// Call getTokens on the text to preserve separate strings that are 
-		// either words or sentence-ending punctuation. Ignore everything
-		// That is not a word or a sentence-ending puctuation.
+		// either words or sentence-ending punctuation.
 		List<String> tokens = getTokens("[!?.]+|[a-zA-Z]+");
 		
 		int length = tokens.size();
@@ -55,33 +39,21 @@ public class EfficientDocument extends Document {
 	/**
 	 * This method does NOT process the whole text each time it is called.  
 	 * It returns information already stored in the EfficientDocument object.
-	 * 
-	 * @return The number of sentences in the document.
 	 */
-	@Override
 	public int getNumSentences() {
 		return this.numSentences;
 	}
 
-	
-	/**
-	 * @return The number of words in the document.
-	 */
 	@Override
 	public int getNumWords() {
 	    return this.numWords;
 	}
 
-
-	/**      
-	 * @return The number of syllables in the document.
-	 */
 	@Override
 	public int getNumSyllables() {
         return this.numSyllables;
 	}
 	
-	// Can be used for testing
 	public static void main(String[] args)
 	{
 	    testCase(new EfficientDocument("This is a test.  How many???  "
