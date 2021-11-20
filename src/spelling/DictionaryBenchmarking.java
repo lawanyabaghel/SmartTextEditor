@@ -1,30 +1,13 @@
 package spelling;
 
-
-/** A class for timing the Dictionary Implementations
- * 
- * @author UC San Diego Intermediate Programming MOOC team
- *
- */
-
 public class DictionaryBenchmarking {
 
 	
 	public static void main(String [] args) {
-
-	    // Run each test more than once to get bigger numbers and less noise.
-	    int trials = 500;
-
-	    // The text to test on
-	    String dictFile = "data/dict.txt";
-		
-	    // The amount of words to increment each step
+	        int trials = 500;
+	        String dictFile = "data/dict.txt";
 		int increment = 2000;
-
-		// The number of steps to run.  
 		int numSteps = 20;
-		
-		// The number of words to start with. 
 		int start = 50000;
 		
 		String notInDictionary = "notaword";
