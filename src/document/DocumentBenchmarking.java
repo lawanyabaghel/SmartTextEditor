@@ -4,30 +4,14 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 
-/** A class for timing the EfficientDocument and BasicDocument classes
- * 
- * @author UC San Diego Intermediate Programming MOOC team
- *
- */
-
 public class DocumentBenchmarking {
 
 	
 	public static void main(String [] args) {
-
-	    // Run each test more than once to get bigger numbers and less noise.
-	    int trials = 100;
-
-	    // The text to test on
-	    String textfile = "data/warAndPeace.txt";
-		
-	    // The amount of characters to increment each step
-		int increment = 20000;
-
-		// The number of steps to run.  
-		int numSteps = 12;
-		
-		// THe number of characters to start with. 
+	        int trials = 100;
+	        String textfile = "data/warAndPeace.txt";
+	        int increment = 20000;
+		int numSteps = 12; 
 		int start = 50000;
 		
 		System.out.print("NumberOfChars"+ '\t');	
@@ -36,21 +20,6 @@ public class DocumentBenchmarking {
 		for (int numToCheck = start; numToCheck < numSteps*increment + start; 
 				numToCheck += increment)
 		{
-			 
-			
-			/* Each time through this loop you should:
-			 * 1. Print out numToCheck followed by a tab (\t) (NOT a newline)
-			 * 2. Read numToCheck characters from the file into a String
-			 * 3. Time a loop that runs trials times (trials is the variable above) that:
-			 *     a. Creates a BasicDocument 
-			 *     b. Calls fleshScore on this document
-			 * 4. Print out the time it took to complete the loop in step 3 
-			 *       followed by a tab (\t)
-			 * 5. Time a loop that runs trials times (trials is the variable above) that:
-			 *     a. Creates an EfficientDocument 
-			 *     b. Calls fleshScore on this document
-			 * 6. Print out the time it took to complete the loop in step 5 
-			 */  
 			System.out.print(numToCheck + "\t");
 			final String str = getStringFromFile(textfile, numToCheck);
                         System.out.print(measureTime(trials,new BasicDocument(str))+"\t");
@@ -73,9 +42,6 @@ public class DocumentBenchmarking {
 		return elapsedTime;
 	}
 	
-	/** Get a specified number of characters from a text file
-	 * 
-	 */
 	public static String getStringFromFile(String filename, int numChars) {
 		
 		StringBuffer s = new StringBuffer();
