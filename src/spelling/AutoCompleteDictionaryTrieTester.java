@@ -1,6 +1,3 @@
-/**
- * 
- */
 package spelling;
 
 import static org.junit.Assert.*;
@@ -11,10 +8,6 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * @author UC San Diego MOOC team
- *
- */
 public class AutoCompleteDictionaryTrieTester {
 
 	private String dictFile = "data/words.small.txt"; 
@@ -23,10 +16,6 @@ public class AutoCompleteDictionaryTrieTester {
 	AutoCompleteDictionaryTrie smallDict;
 	AutoCompleteDictionaryTrie largeDict;
 	
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@Before
 	public void setUp() throws Exception 
 	{
 		emptyDict = new AutoCompleteDictionaryTrie();
