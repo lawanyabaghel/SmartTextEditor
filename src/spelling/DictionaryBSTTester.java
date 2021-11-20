@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package spelling;
 
 import static org.junit.Assert.*;
@@ -9,11 +7,6 @@ import java.util.LinkedList;
 
 import org.junit.Before;
 import org.junit.Test;
-
-/**
- * @author UC San Diego MOOC team
- *
- */
 public class DictionaryBSTTester {
 
 	private String dictFile = "data/words.small.txt"; 
@@ -22,10 +15,6 @@ public class DictionaryBSTTester {
 	DictionaryBST smallDict;
 	DictionaryBST largeDict;
 	
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@Before
 	public void setUp() throws Exception 
 	{
 		emptyDict = new DictionaryBST();
@@ -52,7 +41,6 @@ public class DictionaryBSTTester {
 		assertEquals("Testing size for large dict", 4438, largeDict.size());
 	}
 	
-	/** Test the isWord method */
 	@Test
 	public void testIsWord()
 	{
