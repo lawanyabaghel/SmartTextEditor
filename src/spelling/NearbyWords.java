@@ -10,14 +10,10 @@ public class NearbyWords implements SpellingSuggest {
 
 	Dictionary dict;
 
-	public NearbyWords (Dictionary dict) 
-	{
+	public NearbyWords (Dictionary dict) {
 		this.dict = dict;
 	}
 
-	/** Return the list of Strings that are one modification away
-	 * from the input string.  
-	 */
 	public List<String> distanceOne(String s, boolean wordsOnly )  {
 		   List<String> retList = new ArrayList<String>();
 		   insertions(s, retList, wordsOnly);
@@ -25,12 +21,7 @@ public class NearbyWords implements SpellingSuggest {
 		   deletions(s, retList, wordsOnly);
 		   return retList;
 	}
-
-	
-	/** Add to the currentList Strings that are one character mutation away
-	 * from the input string.  
-	 */
-	public void substitution(String s, List<String> currentList, boolean wordsOnly) {
+        public void substitution(String s, List<String> currentList, boolean wordsOnly) {
 		for(int index = 0; index < s.length(); index++){
 			for(int charCode = (int)'a'; charCode <= (int)'z'; charCode++) {
 				StringBuffer sb = new StringBuffer(s);
