@@ -1,6 +1,3 @@
-/**
- * 
- */
 package spelling;
 
 import static org.junit.Assert.*;
@@ -10,10 +7,6 @@ import java.util.LinkedList;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * @author UC San Diego MOOC team
- *
- */
 public class DictionaryLLTester {
 
 	private String dictFile = "data/words.small.txt"; 
@@ -22,10 +15,6 @@ public class DictionaryLLTester {
 	DictionaryLL smallDict;
 	DictionaryLL largeDict;
 	
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@Before
 	public void setUp() throws Exception 
 	{
 		emptyDict = new DictionaryLL();
@@ -42,8 +31,7 @@ public class DictionaryLLTester {
 	}
 
 	
-	/** Test if the size method is working correctly.
-	 */
+	//Test if the size method is working correctly.
 	@Test
 	public void testSize()
 	{
