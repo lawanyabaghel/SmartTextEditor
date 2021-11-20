@@ -2,46 +2,20 @@ package document;
 
 import java.util.List;
 
-/** 
- * A naive implementation of the Document abstract class. 
- * @author UC San Diego Intermediate Programming MOOC team
- */
 public class BasicDocument extends Document 
 {
-	/** Create a new BasicDocument object
-	 * 
-	 * @param text The full text of the Document.
-	 */
 	public BasicDocument(String text)
 	{
 		super(text);
 	}
 	
-	
-	/**
-	 * Get the number of words in the document.
-	 * A "word" is defined as a contiguous string of alphabetic characters
-	 * i.e. any upper or lower case characters a-z or A-Z.  This method completely 
-	 * ignores numbers when you count words, and assumes that the document does not have 
-	 * any strings that combine numbers and letters. 
-	 * This method processes the entire text string each time it is called.  
-	 * 
-	 * @return The number of words in the document.
-	 */
 	@Override
 	public int getNumWords()
 	{
-		//TODO: Implement this method in week 2 according to the comments above.  
-		// See the Module 2 support videos if you need help.
 		List<String> tokens = getTokens("[a-zA-Z]+");
 		return tokens.size();
 	}
 	
-	/**
-	 * Get the number of sentences in the document.
-	 * 
-	 * @return The number of sentences in the document.
-	 */
 	@Override
 	public int getNumSentences()
 	{ 
@@ -55,9 +29,6 @@ public class BasicDocument extends Document
 	 *       Each contiguous sequence of one or more vowels is a syllable, 
 	 *       with the following exception: a lone "e" at the end of a word 
 	 *       is not considered a syllable unless the word has no other syllables. 
-	 *       You should consider y a vowel.
-	 *       
-	 * @return The number of syllables in the document.
 	 */
 	@Override
 	public int getNumSyllables()
@@ -70,17 +41,8 @@ public class BasicDocument extends Document
 		return tokens.size() - (loneEs.size() - singleEs.size());
 	}
 	
-	
-	/* The main method for testing this class. 
-	 * You are encouraged to add your own tests.  */
 	public static void main(String[] args)
 	{
-		/* Each of the test cases below uses the method testCase.  The first 
-		 * argument to testCase is a Document object, created with the string shown.
-		 * The next three arguments are the number of syllables, words and sentences 
-		 * in the string, respectively.  You can use these examples to help clarify 
-		 * your understanding of how to count syllables, words, and sentences.
-		 */
 		testCase(new BasicDocument("This is a test.  How many???  "
 		        + "Senteeeeeeeeeences are here... there should be 5!  Right?"),
 				16, 13, 5);
