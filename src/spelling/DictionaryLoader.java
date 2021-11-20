@@ -4,12 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class DictionaryLoader {
-
-    /** Load the words from the dictionary file into the dictionary
-     */    
-	public static void loadDictionary(Dictionary d, String filename)
-    {
+public class DictionaryLoader {   
+	public static void loadDictionary(Dictionary d, String filename){
         // Dictionary files have 1 word per line
         BufferedReader reader = null;
         try {
@@ -26,9 +22,6 @@ public class DictionaryLoader {
     }
     
     /** Load the first N words from the dictionary file into the dictionary
-     * 
-     * @param filename The file containing the words to load. 
-     * @param nWords  The number of words to load.  It will load the first nWords words
      */
     public static void loadDictionary(Dictionary d, String filename, int nWords)
     {
