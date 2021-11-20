@@ -75,8 +75,6 @@ public class AutoSpellingTextArea extends StyledTextArea<Boolean> {
 		mGetCharacterIndex.setAccessible(true);
 	}
 
-	// end set up reflection
-
 	public AutoSpellingTextArea(spelling.AutoComplete ac, spelling.SpellingSuggest ss, spelling.Dictionary dic) {
 		super(true, (textNode, correct) -> {
 			// define boolean Text node style
@@ -93,9 +91,6 @@ public class AutoSpellingTextArea extends StyledTextArea<Boolean> {
 		// dictionary used in spelling suggestions
 		this.dic = dic;
 
-		// SPELLING SUGGESTIONS
-
-		// register mouse click for correcting misspelled words
 		this.setOnMouseClicked(e -> {
 			if ((e.getButton() == MouseButton.SECONDARY) && spellingOn) {
 				// get StyledTextAreaView object
@@ -122,24 +117,18 @@ public class AutoSpellingTextArea extends StyledTextArea<Boolean> {
 
 		// keep track of text changes, update spell check if needed
 		this.plainTextChanges().subscribe(change -> {
-			// could make more efficient
 			if (spellingOn && needUpdate) {
 				this.setStyleSpans(0, checkSpelling());
 			}
 		});
 
-		// AUTOCOMPLETE
-
-		// initialize list and options menu for autoComplete
 		options = new ArrayList<String>();
 		entriesPopup = new ContextMenu();
 		setPopupWindow(entriesPopup);
 		setPopupAlignment(PopupAlignment.CARET_BOTTOM);
 
-		// observe caretPosition property for auto complete functionality
 		this.caretPositionProperty().addListener((obs, oldPosition, newPosition) -> {
 			if (autoCompleteOn) {
-				// listen to textProperty to only
 				String prefix = getWordAtIndex(newPosition.intValue());
 				showCompletions(prefix);
 			}
@@ -147,64 +136,38 @@ public class AutoSpellingTextArea extends StyledTextArea<Boolean> {
 		});
 	}
 
-	/**
-	 * Gets white space delimited word which contains character at pos in text
-	 * Also sets startIndex and endIndex instance variables.
-	 * 
-	 * @param pos
-	 *            - index in text area
-	 * @return word at index
-	 */
 
 	private String getWordAtIndex(int pos) {
 		String text = this.getText().substring(0, pos);
 
-		// keeping track of index
 		int index;
 
-		// get first whitespace "behind caret"
 		for (index = text.length() - 1; index >= 0 && !Character.isWhitespace(text.charAt(index)); index--);
 
-		// get prefix and startIndex of word
 		String prefix = text.substring(index + 1, text.length());
 		startIndex = index + 1;
 
-		// get first whitespace forward from caret
         for (index = pos; index < this.getLength() && !Character.isWhitespace(this.getText().charAt(index)); index++);
 
 		String suffix = this.getText().substring(pos, index);
 		endIndex = index;
 
-		// replace regex wildcards (literal ".") with "\.". Looks weird but
-		// correct...
 		prefix = prefix.replaceAll("\\.", "\\.");
 		suffix = suffix.replaceAll("\\.", "\\.");
 
-		// combine both parts of words
 		prefix = prefix + suffix;
 
-		// return current word being typed
 		return prefix;
 	}
 
-	/**
-	 * Populate the entry set with the options passed in
-	 * 
-	 * @param options
-	 *            - list of auto complete options
-	 */
 	private List<CustomMenuItem> createOptions(List<String> options, boolean[] flags) {
 		List<CustomMenuItem> menuItems = new LinkedList<>();
-		// If you'd like more entries, modify this line.
 		int count = Math.min(options.size(), NUM_SUGGESTIONS);
 
 		// add options to ContextMenu
 		for (int i = 0; i < count; i++) {
 			String str = options.get(i);
 
-			// check if need to match case (flags will always be null is
-			// matchCase is true)
-			// see showSuggestions/Completions
 			if (flags != null) {
 				str = convertCaseUsingFlags(str, flags);
 			}
@@ -216,7 +179,6 @@ public class AutoSpellingTextArea extends StyledTextArea<Boolean> {
 
 			// register event where user chooses word (click)
 			item.setOnAction(new EventHandler<ActionEvent>() {
-				@Override
 				public void handle(ActionEvent actionEvent) {
 					needUpdate = false;
 					replaceText(startIndex, endIndex, result);
@@ -232,11 +194,6 @@ public class AutoSpellingTextArea extends StyledTextArea<Boolean> {
 		return menuItems;
 	}
 
-	/**
-	 * Checks spelling of text in text area builds style spans
-	 * 
-	 * @return StyleSpans with misspelled words set to style false (!correct)
-	 */
 	public StyleSpans<Boolean> checkSpelling() {
 		String text = getText();
 		String word;
@@ -252,7 +209,6 @@ public class AutoSpellingTextArea extends StyledTextArea<Boolean> {
 		while (matcher.find()) {
 			word = matcher.group();
 
-			// HINT: may need to change if handling caps
 			boolean styleClass = dic.isWord(word);
 			spansBuilder.add(true, matcher.start() - lastEnd);
 			spansBuilder.add(styleClass, matcher.end() - matcher.start());
@@ -262,19 +218,10 @@ public class AutoSpellingTextArea extends StyledTextArea<Boolean> {
 		// set trailing characters to true
 		spansBuilder.add(true, text.length() - lastEnd);
 
-		// maybe finish out end of text with style true
 		return spansBuilder.create();
 
 	}
 
-	/**
-	 * show suggestions for word in menu at click point
-	 * 
-	 * @param word
-	 *            - word to get suggestions for
-	 * @param click
-	 *            - mouse click for displaying menu
-	 */
 	private void showSuggestions(String word, MouseEvent click) {
 		List<String> suggestions = ss.suggestions(word, NUM_SUGGESTIONS);
 
