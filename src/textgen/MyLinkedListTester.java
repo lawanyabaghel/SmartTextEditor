@@ -1,6 +1,3 @@
-/**
- * 
- */
 package textgen;
 
 import static org.junit.Assert.*;
@@ -10,10 +7,6 @@ import java.util.LinkedList;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * @author UC San Diego MOOC team
- *
- */
 public class MyLinkedListTester {
 
 	private static final int LONG_LIST_LENGTH =10; 
@@ -22,11 +15,6 @@ public class MyLinkedListTester {
 	MyLinkedList<Integer> emptyList;
 	MyLinkedList<Integer> longerList;
 	MyLinkedList<Integer> list1;
-	
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@Before
 	public void setUp() throws Exception {
 	    shortList = new MyLinkedList<String>();
 		shortList.add("A");
@@ -46,9 +34,7 @@ public class MyLinkedListTester {
 
 	
 	@Test
-	public void testGet()
-	{
-		//test empty list, get should throw an exception
+	public void testGet(){
 		try {
 			emptyList.get(0);
 			fail("Check out of bounds");
@@ -56,8 +42,6 @@ public class MyLinkedListTester {
 		catch (IndexOutOfBoundsException e) {
 			
 		}
-		
-		// test short list, first contents, then out of bounds
 		assertEquals("Check first", "A", shortList.get(0));
 		assertEquals("Check second", "B", shortList.get(1));
 		
@@ -106,7 +90,6 @@ public class MyLinkedListTester {
 		assertEquals("Remove: check element 0 is correct ", (Integer)21, list1.get(0));
 		assertEquals("Remove: check size is correct ", 2, list1.size());
 		
-		// TODO: Add more tests here
 		try {
 			shortList.remove(2);
 			fail("Check out of bounds");
@@ -134,14 +117,9 @@ public class MyLinkedListTester {
 			assertEquals("Remove: check size is correct ", LONG_LIST_LENGTH - i - 1, longerList.size());
 		}
 	}
-	
-	/** Test adding an element into the end of the list, specifically
-	 *  public boolean add(E element)
-	 * */
 	@Test
 	public void testAddEnd()
 	{
-        // TODO: implement this test
 		try {
 			shortList.add(null);
 			fail("Check invalid element");
@@ -161,13 +139,8 @@ public class MyLinkedListTester {
 		assertEquals("AddEnd: check size is correct", 2, emptyList.size());
 		
 	}
-
-	
-	/** Test the size of the list */
 	@Test
-	public void testSize()
-	{
-		// TODO: implement this test
+	public void testSize(){
 		assertEquals("Size: empty list ", 0, emptyList.size());
 		assertEquals("Size: short list ", 2, shortList.size());
 		assertEquals("Size: longer list ", 10, longerList.size());
@@ -177,13 +150,10 @@ public class MyLinkedListTester {
 	
 	
 	/** Test adding an element into the list at a specified index,
-	 * specifically:
-	 * public void add(int index, E element)
 	 * */
 	@Test
 	public void testAddAtIndex()
 	{
-        // TODO: implement this test
 		try {
 			shortList.add(0, null);
 			fail("Check invalid element");
@@ -222,7 +192,6 @@ public class MyLinkedListTester {
 	@Test
 	public void testSet()
 	{
-	    // TODO: implement this test
 		try {
 			shortList.set(0, null);
 			fail("Check invalid element");
@@ -257,8 +226,4 @@ public class MyLinkedListTester {
 		
 	    
 	}
-	
-	
-	// TODO: Optionally add more test methods.
-	
 }
